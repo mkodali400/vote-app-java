@@ -33,7 +33,7 @@ resource "aws_security_group" "sonarqube_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+}
 
 resource "aws_instance" "sonarqube" {
   ami           = "ami-0abcdef1234567890"  # Replace with the latest Ubuntu or preferred image

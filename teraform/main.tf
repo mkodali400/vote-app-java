@@ -33,19 +33,13 @@ resource "aws_security_group" "sonarqube_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
 
-resource "aws_key_pair" "sonarqube_key" {
-  key_name   = "sonarqube-key"
-  public_key = file("~/.ssh/id_rsa.pub")  # Adjust the path if your public key is located elsewhere
-}
 
 resource "aws_instance" "sonarqube" {
   ami           = "ami-0abcdef1234567890"  # Replace with the latest Ubuntu or preferred image
   instance_type = "t3.medium"  # Adjust the instance type as per your needs
 
   security_groups = [aws_security_group.sonarqube_sg.name]
-  key_name        = aws_key_pair.sonarqube_key.key_name
 
   user_data = <<-EOF
               #!/bin/bash

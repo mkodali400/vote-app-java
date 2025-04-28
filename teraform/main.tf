@@ -36,7 +36,7 @@ resource "aws_security_group" "sonarqube_sg" {
 }
 
 resource "aws_instance" "sonarqube" {
-  ami           = "ami-0abcdef1234567890"  # Replace with the latest Ubuntu or preferred image
+  ami           = "ami-0e449927258d45bc4"  # Replace with the latest Ubuntu or preferred image
   instance_type = "t3.medium"  # Adjust the instance type as per your needs
 
   security_groups = [aws_security_group.sonarqube_sg.name]
